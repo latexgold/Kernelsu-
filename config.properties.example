@@ -1,0 +1,53 @@
+KERNEL_SOURCE=https://github.com/ERWTE588/kernel_tecno_ki7
+KERNEL_SOURCE_BRANCH=main
+KERNEL_CONFIG=vendor/k79v1_64_defconfig
+KERNEL_IMAGE_NAME=Image.gz-dtb
+ARCH=arm64
+
+# Toolchain Settings
+ENABLE_CLANG=true
+USE_AOSP_CLANG=true
+AOSP_CLANG_SYSTEM=linux-x86
+AOSP_CLANG_BRANCH=master
+AOSP_CLANG_VERSION=r450784e
+USE_CUSTOM_CLANG=false
+CUSTOM_CLANG_SOURCE=https://github.com/magojohnji/ZyCromerZ-Clang.git
+CUSTOM_CLANG_BRANCH=main
+
+ENABLE_GCC=true
+ENABLE_AOSP_GCC_ARM64=true
+ENABLE_AOSP_GCC_ARM32=true
+AOSP_GCC_SYSTEM=linux-x86
+AOSP_GCC_ARM64_VERSION=aarch64-linux-android-4.9
+AOSP_GCC_ARM32_VERSION=arm-linux-androideabi-4.9
+AOSP_GCC_ANDROID_VERSION=12.1.0
+AOSP_GCC_RELEASE=r27
+USE_CUSTOM_GCC_64=false
+CUSTOM_GCC_64_SOURCE=
+CUSTOM_GCC_64_BRANCH=
+CUSTOM_GCC_64_BIN=aarch64-linux-android-
+USE_CUSTOM_GCC_32=false
+CUSTOM_GCC_32_SOURCE=
+CUSTOM_GCC_32_BRANCH=
+CUSTOM_GCC_32_BIN=arm-linux-androideabi-
+
+# KernelSU Settings
+ENABLE_KERNELSU=true
+KERNELSU_INSTALLER=curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
+KERNELSU_TAG=v0.9.5
+KSU_EXPECTED_SIZE=0
+KSU_EXPECTED_HASH=
+BUILD_KERNELSU_BOOT_IMG=true
+KERNELSU_SOURCE_BOOT_IMAGE=https://github.com/ERWTE588/tecno_k17_boot_stock/releases/download/Boot_k17/boot.img
+
+# Build Optimizations
+DISABLE-LTO=false
+DISABLE_CC_WERROR=true
+ADD_KPROBES_CONFIG=true
+ADD_OVERLAYFS_CONFIG=true
+ENABLE_CCACHE=true
+NEED_DTBO=false
+BUILDER_HOST=Github-Action
+
+TC_CUSTOM_CMDS:CLANG_TRIPLE=aarch64-linux-gnu-
+EXTRA_CMDS:LD=ld.lld
